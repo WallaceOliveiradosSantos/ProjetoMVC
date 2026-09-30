@@ -1,0 +1,105 @@
+﻿@model ProjetoMVC.Models.Quarto
+
+@{
+    ViewData["Title"] = "Editar Quarto";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/quartos.css" asp-append-version="true" />
+}
+
+<div class="quarto-page">
+
+    ```
+    <div class="quarto-delete">
+
+        <h1>Editar Quarto</h1>
+
+        <div class="quarto-header">
+            <p>Altere as informações do quarto e salve as modificações.</p>
+        </div>
+
+        <form asp-action="Edit">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <input type="hidden" asp-for="Codigo" />
+
+            <div class="mb-3">
+                <label asp-for="Numero" class="form-label">
+                    Número do Quarto
+                </label>
+
+                <input asp-for="Numero"
+                       class="form-control" />
+
+                <span asp-validation-for="Numero"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Tipo" class="form-label">
+                    Tipo
+                </label>
+
+                <input asp-for="Tipo"
+                       class="form-control" />
+
+                <span asp-validation-for="Tipo"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ValorDiaria" class="form-label">
+                    Valor da Diária
+                </label>
+
+                <input asp-for="ValorDiaria"
+                       class="form-control" />
+
+                <span asp-validation-for="ValorDiaria"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Status" class="form-label">
+                    Status
+                </label>
+
+                <input asp-for="Status"
+                       class="form-control" />
+
+                <span asp-validation-for="Status"
+                      class="text-danger">
+                </span>
+            </div>
+
+            <div class="mt-4 d-flex gap-2 flex-wrap">
+
+                <button type="submit"
+                        class="btn-quarto btn-quarto-primary">
+                    Salvar Alterações
+                </button>
+
+                <a asp-action="Index"
+                   class="btn-quarto btn-quarto-secondary">
+                    Cancelar
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+    ```
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

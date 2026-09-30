@@ -1,0 +1,90 @@
+﻿@model ProjetoMVC.Models.Quarto
+
+@{
+    ViewData["Title"] = "Detalhes do Quarto";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/quartos.css" asp-append-version="true" />
+}
+
+<div class="quarto-page">
+
+    ```
+    <div class="quarto-delete">
+
+        <h1>Detalhes do Quarto</h1>
+
+        <div class="quarto-header">
+            <p>Confira abaixo todas as informações deste quarto.</p>
+        </div>
+
+        <div class="quarto-info">
+
+            <div class="quarto-info-item">
+                <span class="quarto-info-label">
+                    Número do Quarto
+                </span>
+
+                <span class="quarto-info-value">
+                    @Html.DisplayFor(model => model.Numero)
+                </span>
+            </div>
+
+            <div class="quarto-info-item">
+                <span class="quarto-info-label">
+                    Tipo
+                </span>
+
+                <span class="quarto-info-value">
+                    @Html.DisplayFor(model => model.Tipo)
+                </span>
+            </div>
+
+            <div class="quarto-info-item">
+                <span class="quarto-info-label">
+                    Valor da Diária
+                </span>
+
+                <span class="quarto-info-value">
+                    R$ @Html.DisplayFor(model => model.ValorDiaria)
+                </span>
+            </div>
+
+            <div class="quarto-info-item">
+                <span class="quarto-info-label">
+                    Status
+                </span>
+
+                <span class="quarto-info-value">
+                    @Html.DisplayFor(model => model.Status)
+                </span>
+            </div>
+
+        </div>
+
+        <div class="mt-4 d-flex gap-2 flex-wrap">
+
+            <a asp-action="Edit"
+               asp-route-id="@Model?.Codigo"
+               class="btn-quarto btn-quarto-primary">
+                Editar Quarto
+            </a>
+
+            <a asp-action="Delete"
+               asp-route-id="@Model?.Codigo"
+               class="btn-quarto btn-quarto-danger">
+                Excluir Quarto
+            </a>
+
+            <a asp-action="Index"
+               class="btn-quarto btn-quarto-secondary">
+                Voltar para Lista
+            </a>
+
+        </div>
+
+    </div>
+    ```
+
+</div>
