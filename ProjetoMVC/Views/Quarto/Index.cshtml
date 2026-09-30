@@ -1,0 +1,125 @@
+﻿@model IEnumerable<ProjetoMVC.Models.Quarto>
+
+@{
+    ViewData["Title"] = "Quartos";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/quartos.css" asp-append-version="true" />
+}
+
+<div class="quarto-page">
+
+    ```
+    <div class="quarto-delete">
+
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+
+            <div>
+                <h1>Quartos</h1>
+
+                <div class="quarto-header">
+                    <p>Gerencie os quartos cadastrados no sistema.</p>
+                </div>
+            </div>
+
+            <a asp-action="Create"
+               class="btn-quarto btn-quarto-primary">
+                + Novo Quarto
+            </a>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="table quarto-table">
+
+                <thead>
+                    <tr>
+                        <th>
+                            Número
+                        </th>
+
+                        <th>
+                            Tipo
+                        </th>
+
+                        <th>
+                            Valor da Diária
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th class="text-center">
+                            Ações
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    @Html.DisplayFor(modelItem => item.Numero)
+                                </strong>
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Tipo)
+                            </td>
+
+                            <td>
+                                R$ @Html.DisplayFor(modelItem => item.ValorDiaria)
+                            </td>
+
+                            <td>
+                                <span class="quarto-status">
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <div class="quarto-actions">
+
+                                    <a asp-action="Details"
+                                       asp-route-id="@item.Codigo"
+                                       class="btn-quarto btn-quarto-secondary">
+                                        Detalhes
+                                    </a>
+
+                                    <a asp-action="Edit"
+                                       asp-route-id="@item.Codigo"
+                                       class="btn-quarto btn-quarto-primary">
+                                        Editar
+                                    </a>
+
+                                    <a asp-action="Delete"
+                                       asp-route-id="@item.Codigo"
+                                       class="btn-quarto btn-quarto-danger">
+                                        Excluir
+                                    </a>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+    ```
+
+</div>
