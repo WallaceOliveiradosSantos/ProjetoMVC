@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using ProjetoMVC.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Configuração do DbContext com Injeção de Dependência (Passo 9)
+builder.Services.AddDbContext<DbSistemaContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
