@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using ProjetoMVC.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Registra o DbContext no injetor de dependências da aplicação
+builder.Services.AddDbContext<DbSistemaContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? "Server=localhost\\SENAI;Database=DB_Sistema;User id=sa;Password=senai.123;TrustServerCertificate=True;"));
 
 var app = builder.Build();
 
@@ -9,7 +17,11 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
 }
+
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
