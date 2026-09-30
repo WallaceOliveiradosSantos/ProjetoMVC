@@ -1,8 +1,43 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Página Inicial";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="p-5 mb-4 bg-light rounded-3 border shadow-sm text-center position-relative overflow-hidden" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white;">
+    <div class="container-fluid py-4">
+        <h1 class="display-4 fw-bold">Portal Escolar</h1>
+        <p class="col-md-8 fs-5 mx-auto opacity-75">
+            Gerenciamento simplificado de Cursos e Alunos da instituição.
+        </p>
+        <div class="mt-4">
+            <a asp-controller="Cursos" asp-action="Create" class="btn btn-warning btn-lg px-4 me-md-2 fw-bold shadow-sm">
+                <i class="bi bi-plus-circle-fill me-2"></i> Cadastrar Novo Curso
+            </a>
+            <a asp-controller="Cursos" asp-action="Index" class="btn btn-outline-light btn-lg px-4">
+                <i class="bi bi-journal-bookmark me-2"></i> Ver Cursos
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row text-center mt-5">
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-0 bg-white p-3">
+            <div class="card-body">
+                <div class="display-6 text-primary mb-2">📚</div>
+                <h5 class="card-title fw-bold">Gestão de Cursos</h5>
+                <p class="card-text text-muted">Consulte, cadastre e edite as disciplinas e cargas horárias ativas.</p>
+                <a asp-controller="Cursos" asp-action="Index" class="btn btn-primary w-100 fw-bold">Acessar Cursos</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-0 bg-white p-3">
+            <div class="card-body">
+                <div class="display-6 text-success mb-2">👥</div>
+                <h5 class="card-title fw-bold">Gestão de Clientes</h5>
+                <p class="card-text text-muted">Acesse a lista completa de alunos e inscritos no sistema.</p>
+                <a asp-controller="Clientes" asp-action="Index" class="btn btn-success w-100 fw-bold">Acessar Clientes</a>
+            </div>
+        </div>
+    </div>
 </div>
