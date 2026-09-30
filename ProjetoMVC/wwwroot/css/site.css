@@ -1,22 +1,343 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    html {
+        font-size: 16px;
+    }
 }
 
 body {
-  margin-bottom: 60px;
+    margin: 0;
+    margin-bottom: 70px;
+    background-color: #f5f7fb;
+    color: #212529;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e3e7ed;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    padding: 12px 0;
+}
+
+.navbar-brand {
+    color: #212529 !important;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+    .navbar-brand:hover {
+        color: #258cfb !important;
+    }
+
+.navbar .nav-link {
+    color: #59636e !important;
+    font-weight: 500;
+    margin: 0 3px;
+    padding: 8px 14px !important;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+    .navbar .nav-link:hover {
+        color: #258cfb !important;
+        background-color: #f0f6ff;
+    }
+
+/* Botão Professor */
+
+.navbar .professor-btn {
+    background-color: #258cfb;
+    color: #ffffff !important;
+    font-weight: 600;
+    padding: 8px 18px !important;
+    border-radius: 8px;
+    margin-left: 10px;
+    box-shadow: 0 4px 10px rgba(37, 140, 251, 0.2);
+    transition: all 0.2s ease;
+}
+
+    .navbar .professor-btn:hover {
+        background-color: #1478df;
+        color: #ffffff !important;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 14px rgba(37, 140, 251, 0.25);
+    }
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    max-width: 1200px;
+}
+
+/* =========================
+   TÍTULOS
+========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #212529;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+    color: #258cfb;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+    a:hover {
+        color: #1268c4;
+    }
+
+/* =========================
+   BOTÕES
+========================= */
+
+.btn {
+    border-radius: 9px;
+    padding: 9px 18px;
+    font-weight: 600;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+    .btn:hover {
+        transform: translateY(-1px);
+    }
+
+.btn-primary {
+    background-color: #258cfb;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(37, 140, 251, 0.18);
+}
+
+    .btn-primary:hover {
+        background-color: #1478df;
+        color: #ffffff;
+    }
+
+.btn-secondary {
+    background-color: #64748b;
+    color: #ffffff;
+}
+
+    .btn-secondary:hover {
+        background-color: #526174;
+        color: #ffffff;
+    }
+
+/* =========================
+   FORMULÁRIOS
+========================= */
+
+.form-control,
+.form-select {
+    background-color: #ffffff;
+    border: 1px solid #d9dee7;
+    color: #212529;
+    border-radius: 9px;
+    padding: 10px 14px;
+    transition: all 0.2s ease;
+}
+
+    .form-control:hover,
+    .form-select:hover {
+        border-color: #b8c1cc;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        background-color: #ffffff;
+        color: #212529;
+        border-color: #258cfb;
+        box-shadow: 0 0 0 3px rgba(37, 140, 251, 0.15);
+        outline: none;
+    }
+
+    .form-control::placeholder {
+        color: #9aa3ad;
+    }
+
+.form-label {
+    color: #374151;
+    font-weight: 600;
+    margin-bottom: 7px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e7ebf0;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.06);
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+    .card:hover {
+        box-shadow: 0 8px 28px rgba(15, 23, 42, 0.09);
+    }
+
+.card-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #edf0f5;
+    color: #212529;
+    font-weight: 600;
+    padding: 17px 20px;
+}
+
+.card-body {
+    padding: 22px;
+}
+
+/* =========================
+   TABELAS
+========================= */
+
+.table {
+    background-color: #ffffff;
+    color: #212529;
+    border-radius: 12px;
+    overflow: hidden;
+    vertical-align: middle;
+    margin-bottom: 0;
+}
+
+    .table thead {
+        background-color: #f1f4f9;
+    }
+
+        .table thead th {
+            border: none;
+            color: #495057;
+            font-weight: 700;
+            padding: 15px;
+        }
+
+    .table tbody td {
+        color: #374151;
+        padding: 14px 15px;
+        border-color: #edf0f5;
+    }
+
+    .table tbody tr {
+        background-color: #ffffff;
+        transition: all 0.2s ease;
+    }
+
+        .table tbody tr:hover {
+            background-color: #f8faff;
+        }
+
+/* =========================
+   CHECKBOX
+========================= */
+
+.form-check-input {
+    border-color: #cbd5e1;
+    border-radius: 5px;
+}
+
+    .form-check-input:checked {
+        background-color: #258cfb;
+        border-color: #258cfb;
+    }
+
+/* =========================
+   ALERTAS
+========================= */
+
+.alert {
+    border-radius: 10px;
+    border: none;
+}
+
+/* =========================
+   PAGINAÇÃO
+========================= */
+
+.pagination .page-link {
+    border: none;
+    margin: 0 3px;
+    border-radius: 8px;
+    color: #475569;
+    transition: all 0.2s ease;
+}
+
+    .pagination .page-link:hover {
+        background-color: #eff6ff;
+        color: #258cfb;
+    }
+
+.pagination .active .page-link {
+    background-color: #258cfb;
+    color: #ffffff;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid #e3e7ed;
+    color: #64748b;
+    padding: 18px 0;
+    font-size: 0.9rem;
+}
+
+    .footer a {
+        color: #258cfb;
+        font-weight: 500;
+    }
+
+        .footer a:hover {
+            color: #1268c4;
+        }
+
+/* =========================
+   ANIMAÇÃO
+========================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main {
+    animation: fadeIn 0.35s ease;
 }
