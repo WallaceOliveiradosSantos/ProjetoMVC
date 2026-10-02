@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProjetoMVC.Models
 {
@@ -17,3 +17,4 @@ namespace ProjetoMVC.Models
         }
     }
 }
+
