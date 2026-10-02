@@ -6,9 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<EscolaDbContext>(options =>
+
+builder.Services.AddDbContext<DbSistemaContext>(options =>
 options.UseSqlServer(
-builder.Configuration.GetConnectionString("DefaultConnection"))); 
+builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 var app = builder.Build();
 
