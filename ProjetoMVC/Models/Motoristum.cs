@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ProjetoMVC.Models;
 
-public partial class Professor
+public partial class Motoristum
 {
     public int Codigo { get; set; }
 
@@ -11,7 +11,7 @@ public partial class Professor
 
     public string Cpf { get; set; } = null!;
 
-    public string Especialidade { get; set; } = null!;
+    public string Cnh { get; set; } = null!;
 
-    public decimal Salario { get; set; }
+    public string? Telefone { get; set; }
 }

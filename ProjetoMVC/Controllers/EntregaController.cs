@@ -9,22 +9,22 @@ using ProjetoMVC.Models;
 
 namespace ProjetoMVC.Controllers
 {
-    public class ProfessorController : Controller
+    public class EntregaController : Controller
     {
-        private readonly DbSistemaContext _context;
+        private readonly DbSistema2Context _context;
 
-        public ProfessorController(DbSistemaContext context)
+        public EntregaController(DbSistema2Context context)
         {
             _context = context;
         }
 
-        // GET: Professor
+        // GET: Entrega
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Professors.ToListAsync());
+            return View(await _context.Entregas.ToListAsync());
         }
 
-        // GET: Professor/Details/5
+        // GET: Entrega/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace ProjetoMVC.Controllers
                 return NotFound();
             }
 
-            var professor = await _context.Professors
+            var entrega = await _context.Entregas
                 .FirstOrDefaultAsync(m => m.Codigo == id);
-            if (professor == null)
+            if (entrega == null)
             {
                 return NotFound();
             }
 
-            return View(professor);
+            return View(entrega);
         }
 
-        // GET: Professor/Create
+        // GET: Entrega/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Professor/Create
+        // POST: Entrega/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Codigo,Nome,Cpf,Especialidade,Salario")] Professor professor)
+        public async Task<IActionResult> Create([Bind("Codigo,Destino,DescricaoCarga,Peso,DataEntrega,Status")] Entrega entrega)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(professor);
+                _context.Add(entrega);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(professor);
+            return View(entrega);
         }
 
-        // GET: Professor/Edit/5
+        // GET: Entrega/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace ProjetoMVC.Controllers
                 return NotFound();
             }
 
-            var professor = await _context.Professors.FindAsync(id);
-            if (professor == null)
+            var entrega = await _context.Entregas.FindAsync(id);
+            if (entrega == null)
             {
                 return NotFound();
             }
-            return View(professor);
+            return View(entrega);
         }
 
-        // POST: Professor/Edit/5
+        // POST: Entrega/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Codigo,Nome,Cpf,Especialidade,Salario")] Professor professor)
+        public async Task<IActionResult> Edit(int id, [Bind("Codigo,Destino,DescricaoCarga,Peso,DataEntrega,Status")] Entrega entrega)
         {
-            if (id != professor.Codigo)
+            if (id != entrega.Codigo)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace ProjetoMVC.Controllers
             {
                 try
                 {
-                    _context.Update(professor);
+                    _context.Update(entrega);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProfessorExists(professor.Codigo))
+                    if (!EntregaExists(entrega.Codigo))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace ProjetoMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(professor);
+            return View(entrega);
         }
 
-        // GET: Professor/Delete/5
+        // GET: Entrega/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -123,34 +123,34 @@ namespace ProjetoMVC.Controllers
                 return NotFound();
             }
 
-            var professor = await _context.Professors
+            var entrega = await _context.Entregas
                 .FirstOrDefaultAsync(m => m.Codigo == id);
-            if (professor == null)
+            if (entrega == null)
             {
                 return NotFound();
             }
 
-            return View(professor);
+            return View(entrega);
         }
 
-        // POST: Professor/Delete/5
+        // POST: Entrega/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var professor = await _context.Professors.FindAsync(id);
-            if (professor != null)
+            var entrega = await _context.Entregas.FindAsync(id);
+            if (entrega != null)
             {
-                _context.Professors.Remove(professor);
+                _context.Entregas.Remove(entrega);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProfessorExists(int id)
+        private bool EntregaExists(int id)
         {
-            return _context.Professors.Any(e => e.Codigo == id);
+            return _context.Entregas.Any(e => e.Codigo == id);
         }
     }
 }
